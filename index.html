@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmad Saqlain Raza | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Ahmad Saqlain Raza</h1>
+    <p>Product Manager | Platform Innovator | SaaS Specialist</p>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="loadPage('about.html')">About</a></li>
+        <li><a href="#" onclick="loadPage('projects.html')">Projects</a></li>
+        <li><a href="#" onclick="loadPage('skills.html')">Skills</a></li>
+        <li><a href="#" onclick="loadPage('contact.html')">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content" class="fade"></main>
+
+<footer>
+  <p>&copy; 2024 Ahmad Saqlain Raza. All rights reserved.</p>
+</footer>
+
+<script>
+function loadPage(page) {
+  const content = document.getElementById('content');
+  content.classList.remove('fade-in');
+  fetch(page)
+    .then(response => response.text())
+    .then(data => {
+      content.innerHTML = data;
+      setTimeout(() => content.classList.add('fade-in'), 10);
+    });
+}
+
+window.onload = function() {
+  loadPage('about.html');
+};
+</script>
+
+</body>
+</html>
